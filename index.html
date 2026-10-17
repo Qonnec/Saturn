@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/brands.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/fontawesome.min.js" defer></script>
 <style>
 /* Layout: a blueprint swimlane — one car's day in the shop runs down the page,
    each step tagged by the person whose hands it passes through, with the shop's
@@ -393,6 +395,14 @@ section.block{padding-block:88px}
 
 footer{padding-block:36px 44px;font-size:13px;color:var(--muted)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center;justify-content:space-between}
+footer .copy{flex-basis:100%}
+footer .fb{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--muted)}
+footer .fb b{display:block;color:var(--ink);font-size:14px}
+footer .fb:hover b{color:var(--blue)}
+.fb-ic{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#1877f2;color:#fff;flex:none;font-size:18px}
+.fb-ic svg{width:18px;height:18px}
+.fb-ic .fbf{font:800 20px/1 var(--f-body)}
+.fb-ic svg + .fbf{display:none}
 footer .q{display:flex;align-items:center;gap:12px}
 footer .q b{color:var(--ink);display:block;font-size:14px}
 footer .q svg{width:30px;height:30px;flex:none}
@@ -1414,11 +1424,11 @@ footer .q svg{width:30px;height:30px;flex:none}
 <footer>
   <div class="wrap">
     <a class="logo" href="#home"><svg aria-hidden="true"><use href="#mark"/></svg><span>AUTOMETRIK</span></a>
-    <div class="q">
-      <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="6" y="6" width="28" height="28" rx="5" transform="rotate(45 20 20)" fill="var(--qonnec)"/><rect x="13" y="13" width="14" height="14" rx="2" transform="rotate(45 20 20)" fill="var(--bg)"/></svg>
-      <div>A product of<b>Qonnec Software Solutions, Inc.</b>Connecting Businesses Through Digital Technology</div>
-    </div>
-    <div>© 2026 Qonnec Software Solutions, Inc. Kalye Auto Care and its customers are fictional examples.</div>
+    <a class="fb" href="https://www.facebook.com/autometrik.ph" target="_blank" rel="noopener">
+      <span class="fb-ic" aria-hidden="true"><i class="fa-brands fa-facebook-f"></i><span class="fbf">f</span></span>
+      <span><b>Follow us on Facebook</b>facebook.com/autometrik.ph</span>
+    </a>
+    <div class="copy">© 2026 Qonnec Software Solutions, Inc. Kalye Auto Care and its customers are fictional examples.</div>
   </div>
 </footer>
 
