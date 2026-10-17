@@ -122,7 +122,22 @@ nav.main a{padding-block:6px}
   .theme-btn{margin-left:auto}
   .menu{display:grid}
 }
-@media (max-width:420px){header .btn{display:none}}
+@media (max-width:480px){
+  header.site .wrap{gap:8px}
+  .logo{gap:8px}
+  .logo svg{width:32px;height:26px}
+  .logo span{font-size:13px;letter-spacing:.16em}
+  header .btn{padding:8px 11px;font-size:13px}
+  .theme-btn,.menu{width:36px;height:36px}
+}
+@media (max-width:370px){header.site .logo span{display:none}}
+/* Messenger chat button */
+.msgr{position:fixed;z-index:60;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));display:inline-flex;align-items:center;gap:10px;padding:12px 18px 12px 14px;border-radius:999px;background:#0866ff;color:#fff;text-decoration:none;font:600 15px/1 var(--f-body);box-shadow:0 6px 20px rgba(8,102,255,.35)}
+.msgr:hover{filter:brightness(1.08)}
+.msgr .mi{width:24px;height:24px;display:grid;place-items:center;font-size:22px}
+.msgr .mi svg{width:24px;height:24px}
+.msgr .mi svg.svg-inline--fa + .mf{display:none}
+@media (max-width:520px){.msgr{padding:14px}.msgr .mt{display:none}}
 .page{animation:pagein .35s ease both}
 @keyframes pagein{from{opacity:.4;transform:translateY(6px)}to{opacity:1;transform:none}}
 .explore{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
@@ -446,7 +461,7 @@ section.block{padding-block:88px}
 @media (max-width:860px){.cta .wrap{grid-template-columns:1fr}}
 @media (max-width:480px){.cta form{grid-template-columns:1fr}}
 
-footer{padding-block:36px 44px;font-size:13px;color:var(--muted)}
+footer{padding-block:36px 96px;font-size:13px;color:var(--muted)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center;justify-content:space-between}
 footer .copy{flex-basis:100%}
 footer .fb{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--muted)}
@@ -525,6 +540,7 @@ footer .q svg{width:30px;height:30px;flex:none}
 <div class="brandbar" aria-hidden="true"><i></i><i></i></div>
 
 
+<a class="msgr" href="https://m.me/autometrik.ph" target="_blank" rel="noopener" aria-label="Chat with Autometrik on Messenger"><span class="mi" aria-hidden="true"><i class="fa-brands fa-facebook-messenger"></i><svg class="mf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg></span><span class="mt">Chat with us</span></a>
 <footer>
   <div class="wrap">
     <a class="logo" href="index.html"><svg aria-hidden="true"><use href="#mark"/></svg><span>AUTOMETRIK</span></a>
