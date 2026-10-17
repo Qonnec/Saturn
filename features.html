@@ -171,16 +171,16 @@ nav.main a{padding-block:6px}
 .hero .chips span{display:inline-flex;align-items:center;gap:8px}
 .hero .chips svg{width:18px;height:18px;flex:none}
 .art{position:relative;min-width:0}
-.art .frame{border-radius:18px;overflow:hidden;background:var(--art-bg);box-shadow:var(--shadow);border:1px solid var(--line);aspect-ratio:900/640;max-width:100%}
-.hero-art{display:block;width:100%;height:100%}
+.art .frame{border-radius:18px;overflow:hidden;background:#ffffff;box-shadow:var(--shadow);border:1px solid var(--line);aspect-ratio:1040/632;max-width:100%}
+.hero-art{display:block;width:100%;height:100%;object-fit:cover}
 .toast{position:absolute;display:flex;gap:10px;align-items:flex-start;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:12px 14px;font-size:13px;line-height:1.4;max-width:250px}
 .toast b{display:block;font-size:12px;color:var(--muted);font-weight:600;margin-bottom:2px}
 .toast .ic{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;flex:none;color:#fff}
-.toast.t1{right:-18px;top:18px}
+.toast.t1{right:-18px;top:-100px}
 .toast.t1 .ic{background:var(--green)}
 .toast.t2{right:-18px;top:28px}
 .toast.t2 .ic{background:var(--blue)}
-@media (max-width:960px){.hero .wrap{grid-template-columns:1fr}.toast.t1{right:12px;top:96px}.toast.t2{right:12px;top:12px}}
+@media (max-width:960px){.hero .wrap{grid-template-columns:1fr}.toast.t1{right:12px;top:-92px}.hero .art{margin-top:72px}.toast.t2{right:12px;top:12px}}
 @media (max-width:520px){.toast{display:none}}
 
 /* Section heads */
@@ -259,6 +259,15 @@ section.block{padding-block:88px}
 @media (max-width:760px){.sctabs{grid-template-columns:1fr}}
 .slink{font-weight:600;font-size:14px;color:var(--blue);text-decoration:none}
 .slink:hover{text-decoration:underline}
+.cta .wrap > *{min-width:0}
+.cta label{min-width:0}
+.cta select{width:100%}
+.head-art{grid-template-columns:1.05fr .95fr;align-items:center;gap:28px 56px}
+.head-art .head-lede{color:var(--muted);font-size:17px;max-width:34em;margin-top:16px}
+.head-img{border-radius:18px;overflow:hidden;background:#ffffff;max-width:100%}
+.head-img svg{display:block;width:100%;height:auto}
+.head-img .head-photo{display:block;width:100%;height:auto;background:#eef4fb}
+@media (max-width:860px){.head-art{grid-template-columns:1fr}.head-art .head-img{max-width:440px}}
 /* Sticky job order */
 .jo-wrap{position:sticky;top:calc(env(safe-area-inset-top,0px) + 86px)}
 .jo{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
@@ -446,17 +455,22 @@ section.block{padding-block:88px}
 @media (max-width:860px){.plat{grid-template-columns:1fr}}
 
 /* CTA */
-.cta{background:var(--ink);color:var(--bg)}
+.cta{background:var(--surface);color:var(--ink)}
 .cta .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;padding-block:72px;align-items:center}
 .cta h2,.cta h1{font-size:clamp(30px,4vw,46px);font-weight:800}
 .cta h2 .g,.cta h1 .g{color:var(--green)}
-.cta p{opacity:.75;margin-top:14px;font-size:17px;max-width:32em}
-.cta form{display:grid;grid-template-columns:1fr 1fr;gap:12px;background:var(--bg);color:var(--ink);padding:22px;border-radius:14px}
+.cta p{color:var(--muted);margin-top:14px;font-size:17px;max-width:32em}
+.cta form{display:grid;grid-template-columns:1fr 1fr;gap:12px;background:var(--card);color:var(--ink);padding:22px;border-radius:14px;border:1px solid var(--line);box-shadow:var(--shadow)}
 .cta label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600}
 .cta label.full{grid-column:1/-1}
 .cta input,.cta select{font:15px var(--f-body);padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);min-width:0}
 .cta .full{grid-column:1/-1}
 .cta .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.cta .call{display:inline-flex;align-items:center;gap:12px;margin-top:22px;color:var(--ink);text-decoration:none}
+.cta .call-ic{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:var(--green);color:#fff;flex:none}
+.cta .call small{display:block;font-size:13px;color:var(--muted)}
+.cta .call b{display:block;font-size:20px;font-weight:800;letter-spacing:.01em}
+.cta .call:hover b{color:var(--blue)}
 .cta .msg{font-size:13px;color:var(--green-ink);font-weight:600}
 @media (max-width:860px){.cta .wrap{grid-template-columns:1fr}}
 @media (max-width:480px){.cta form{grid-template-columns:1fr}}
@@ -509,12 +523,13 @@ footer .q svg{width:30px;height:30px;flex:none}
 <div class="page" id="pg-processes" data-page="processes">
 <section class="block">
   <div class="wrap">
-    <div class="head">
+    <div class="head head-art">
       <div>
         <div class="eyebrow"><span class="num">03</span><span class="dot"></span><span>Features</span></div>
         <h1>Everything the shop runs on, in one system.</h1>
+        <p class="head-lede">From the first estimate to the owner's monthly profit, every feature works from the same job orders, so each person does their part once and everyone else sees it.</p>
       </div>
-      <p>From the first estimate to the owner's monthly profit, every feature works from the same job orders, so each person does their part once and everyone else sees it.</p>
+      <div class="head-img"><img class="head-photo" src="img/features.webp?v=6" width="1040" height="608" loading="lazy" alt="A shop manager reviews job orders, stock and sales on the Autometrik dashboard at his desk"></div>
     </div>
     <div class="pgroup"><span>Front desk &amp; shop floor</span><em>Where every customer visit starts</em></div>
     <div class="feats">
