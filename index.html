@@ -368,6 +368,28 @@ section.block{padding-block:88px}
 .proc.g{border-color:var(--green)}
 .proc.g .n{background:var(--green);color:#10200a}
 @media (max-width:900px){.procs3{grid-template-columns:1fr}}
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:36px}
+.feat{display:flex;flex-direction:column;gap:10px;padding:22px;border:1px solid var(--line);border-radius:16px;background:var(--card);min-width:0}
+.ftop{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.ficon{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:color-mix(in srgb,var(--blue) 12%,transparent);color:var(--blue);flex:none}
+.ficon svg{width:24px;height:24px}
+.froles{display:flex;flex-wrap:wrap;gap:6px}
+.froles span{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--a)}
+.froles span::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--a)}
+.feat h3{font-size:20px;letter-spacing:-.015em}
+.fsum{color:var(--muted);font-size:15px}
+.feat.wide{display:grid;grid-template-columns:1.1fr 1fr;gap:20px 40px;align-items:center;border-color:color-mix(in srgb,var(--qonnec) 40%,var(--line));background:linear-gradient(90deg,color-mix(in srgb,var(--qonnec) 6%,var(--card)),var(--card) 70%)}
+.feat.wide .ficon{background:color-mix(in srgb,var(--qonnec) 14%,transparent);color:var(--qonnec)}
+.feat.wide h3{font-size:24px;margin-top:10px}
+.feat.wide .fsum{margin-top:8px}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px}
+.flow span{padding:8px 14px;border-radius:999px;border:1.5px solid var(--cyan);background:var(--card);font-size:14px;font-weight:600}
+.flow span.g{border-color:var(--green);background:color-mix(in srgb,var(--green) 12%,var(--card))}
+.flow span.o{border-color:var(--qonnec);background:color-mix(in srgb,var(--qonnec) 10%,var(--card))}
+.flow i{font-style:normal;color:var(--muted)}
+.flow.sub span{font-weight:500;font-size:13.5px}
+@media (max-width:1000px){.feats{grid-template-columns:1fr 1fr}.feats .feat:last-child{grid-column:1/-1}.feat.wide{grid-template-columns:1fr}}
+@media (max-width:640px){.feats{grid-template-columns:1fr}}
 /* Platform */
 
 .plat{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
@@ -424,7 +446,7 @@ footer .q svg{width:30px;height:30px;flex:none}
       <a href="#home" data-nav="home">Home</a>
       <a href="#journey" data-nav="journey">A day in the shop</a>
       <a href="#roles" data-nav="roles">Who uses it</a>
-      <a href="#processes" data-nav="processes">How it connects</a>
+      <a href="#features" data-nav="processes">Features</a>
       <a href="#shops" data-nav="shops">Shops we serve</a>
       <a href="#platform" data-nav="platform">Platform</a>
     </nav>
@@ -596,7 +618,7 @@ footer .q svg{width:30px;height:30px;flex:none}
     <div class="explore">
       <a href="#journey"><span class="k">01</span><b>A day in the shop</b><span>Follow one car from check-in to its next service reminder, with every SMS the customer receives.</span><i>Read the story →</i></a>
       <a href="#roles"><span class="k">02</span><b>Who uses it</b><span>Customer, service advisor, mechanic, admin staff and owner, each with their own screen.</span><i>Pick a role →</i></a>
-      <a href="#processes"><span class="k">03</span><b>How it connects</b><span>Shop operations, accounting, CRM and payroll handing off to each other, so nobody re-types anything.</span><i>See the processes →</i></a>
+      <a href="#features"><span class="k">03</span><b>Features</b><span>Job orders, counter sales, inventory, accounting, payroll, SMS and reports on one system.</span><i>See the features →</i></a>
       <a href="#shops"><span class="k">04</span><b>Shops we serve</b><span>Repair and tire shops first, plus auto supply, detailing and motorcycle shops.</span><i>Find your shop →</i></a>
       <a href="#platform"><span class="k">05</span><b>Platform</b><span>Microsoft Azure hosting, backups, recovery, patching and password policy.</span><i>See the platform →</i></a>
     </div>
@@ -1327,7 +1349,7 @@ footer .q svg{width:30px;height:30px;flex:none}
   </div>
 </section>
 
-<section class="next"><div class="wrap"><a class="nextlink" href="#processes"><span>Next page</span><b>How it connects <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></b><em>Operations, accounting, CRM and payroll on one system</em></a></div></section>
+<section class="next"><div class="wrap"><a class="nextlink" href="#features"><span>Next page</span><b>Features <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></b><em>Everything the shop runs on, in one system</em></a></div></section>
 </div>
 
 <div class="page" id="pg-processes" data-page="processes" hidden>
@@ -1335,27 +1357,96 @@ footer .q svg{width:30px;height:30px;flex:none}
   <div class="wrap">
     <div class="head">
       <div>
-        <div class="eyebrow"><span class="num">03</span><span class="dot"></span><span>How it connects</span></div>
-        <h2>Every process hands off to the next.</h2>
+        <div class="eyebrow"><span class="num">03</span><span class="dot"></span><span>Features</span></div>
+        <h2>Everything the shop runs on, in one system.</h2>
       </div>
-      <p>Shop operations pass their results along: invoices to Payment, stock shortfalls to Purchasing, supplier invoices to Supplier Payment. Underneath, Accounting, CRM and Payroll pick up every transaction on their own. That's why nobody re-types anything.</p>
+      <p>From the first estimate to the owner's monthly profit, every feature works from the same job orders, so each person does their part once and everyone else sees it.</p>
     </div>
-    <div class="pgroup"><span>Shop operations</span><em>Seven core processes from the job order to the supplier</em></div>
-    <div class="procs">
-      <div class="proc"><div class="n">01</div><div class="t">Job Order</div><div class="x">Estimate to vehicle release: pricing approval, stock allocation, job status, invoicing.<span class="h">→ invoice amount due to Payment</span></div></div>
-      <div class="proc"><div class="n">02</div><div class="t">Payment</div><div class="x">Collect against one or more open invoices; post to the ledger.<span class="h">→ Partially Paid or Fully Paid</span></div></div>
-      <div class="proc"><div class="n">03</div><div class="t">Deposit <span class="pill" style="--pc:var(--muted);margin-left:6px;font-size:10.5px">Optional</span></div><div class="x">For shops that take advance payments: held and applied when the invoice is issued.<span class="h">→ applied advance to Job Order</span></div></div>
-      <div class="proc"><div class="n">04</div><div class="t">Sales Order</div><div class="x">Over-the-counter tire and parts sales, no job needed.<span class="h">→ stock shortfall to Purchasing</span></div></div>
-      <div class="proc"><div class="n">05</div><div class="t">Purchasing</div><div class="x">Purchase orders and receiving that update stock on arrival.<span class="h">→ supplier invoice to Supplier Payment</span></div></div>
-      <div class="proc"><div class="n">06</div><div class="t">Supplier Payment</div><div class="x">Pay supplier invoices, issue remittances, keep the check register.</div></div>
-      <div class="proc"><div class="n">07</div><div class="t">Inventory</div><div class="x">Stock allocation, deductions, cycle counts and adjustments with reasons.</div></div>
-      <div class="proc legend"><b>One database underneath</b>Customers, vehicles, job orders, invoices, payments, stock and journal entries share one record, so every screen agrees.</div>
+    <div class="pgroup"><span>Front desk &amp; shop floor</span><em>Where every customer visit starts</em></div>
+    <div class="feats">
+      <article class="feat ">
+        <div class="ftop"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><div class="froles"><span style="--a:var(--cyan)">Advisor</span><span style="--a:var(--blue)">Mechanic</span></div></div>
+        <h3>Job orders &amp; estimates</h3>
+        <p class="fsum">From the first estimate to vehicle release, on one record.</p>
+        <ul class="sfeat"><li><svg><use href="#ck"/></svg><span>Estimates from service packages and the price list, printed or texted</span></li><li><svg><use href="#ck"/></svg><span>One click turns an approved estimate into a job order</span></li><li><svg><use href="#ck"/></svg><span>Mechanic assignment, checklists, photos and add-on approvals</span></li><li><svg><use href="#ck"/></svg><span>Status from Estimate to In Process, Completed and Released</span></li></ul>
+      </article>
+      <article class="feat ">
+        <div class="ftop"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16l-1.5 9H5.5z"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg></span><div class="froles"><span style="--a:var(--cyan)">Advisor</span><span style="--a:var(--warn)">Admin</span></div></div>
+        <h3>Counter sales</h3>
+        <p class="fsum">Tires, batteries, parts and accessories sold without a job order.</p>
+        <ul class="sfeat"><li><svg><use href="#ck"/></svg><span>Fast sales orders at the counter</span></li><li><svg><use href="#ck"/></svg><span>Stock checked and deducted on every sale</span></li><li><svg><use href="#ck"/></svg><span>Each sale tied to the customer and vehicle for warranty</span></li><li><svg><use href="#ck"/></svg><span>Shortfalls go straight to purchasing</span></li></ul>
+      </article>
+      <article class="feat ">
+        <div class="ftop"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8"/></svg></span><div class="froles"><span style="--a:var(--green)">Customer</span><span style="--a:var(--cyan)">Advisor</span><span style="--a:var(--qonnec)">Owner</span></div></div>
+        <h3>CRM, SMS &amp; reminders</h3>
+        <p class="fsum">Customers who know what is happening, and come back.</p>
+        <ul class="sfeat"><li><svg><use href="#ck"/></svg><span>Customer and vehicle history, found by plate number</span></li><li><svg><use href="#ck"/></svg><span>SMS at every status change and payment</span></li><li><svg><use href="#ck"/></svg><span>Service and maintenance reminders by mileage and date</span></li><li><svg><use href="#ck"/></svg><span>Reviews tied to the advisor and mechanic on the job</span></li></ul>
+      </article>
     </div>
-    <div class="pgroup"><span>Running the business</span><em>Fed automatically by every transaction above</em></div>
-    <div class="procs procs3">
-      <div class="proc g"><div class="n">08</div><div class="t">Accounting</div><div class="x">Invoices, payments, purchases, supplier payments and payroll post their own journal entries. General ledger, profit &amp; loss and balance sheet stay current, with VAT and withholding tax ready for BIR.<span class="h">→ real-time profit &amp; expenses for the owner</span></div></div>
-      <div class="proc g"><div class="n">09</div><div class="t">CRM</div><div class="x">Customer and vehicle records with full service history, SMS notifications at every step, reviews tied to the advisor and mechanic, and service reminders by mileage and date.<span class="h">→ reminders bring customers back to Job Order</span></div></div>
-      <div class="proc g"><div class="n">10</div><div class="t">Payroll</div><div class="x">Salaries and wages per cut-off, mechanic incentives from completed job orders, advisor commissions, and SSS, PhilHealth, Pag-IBIG and withholding tax computed.<span class="h">→ payroll expense posted to Accounting</span></div></div>
+    <div class="pgroup"><span>Stock &amp; suppliers</span><em>So the right part is on the shelf, and the supplier is paid on time</em></div>
+    <div class="feats">
+      <article class="feat ">
+        <div class="ftop"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-5 9 5v8l-9 5-9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg></span><div class="froles"><span style="--a:var(--warn)">Admin</span><span style="--a:var(--qonnec)">Owner</span></div></div>
+        <h3>Inventory</h3>
+        <p class="fsum">Stock you can trust without counting every night.</p>
+        <ul class="sfeat"><li><svg><use href="#ck"/></svg><span>Stock by item, size and brand, with reorder points</span></li><li><svg><use href="#ck"/></svg><span>Parts reserved per job; deducted on release</span></li><li><svg><use href="#ck"/></svg><span>Cycle counts and adjustments with reasons</span></li><li><svg><use href="#ck"/></svg><span>Materials issued to jobs, so cost is counted per car</span></li></ul>
+      </article>
+      <article class="feat ">
+        <div class="ftop"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><div class="froles"><span style="--a:var(--warn)">Admin</span></div></div>
+        <h3>Purchasing &amp; receiving</h3>
+        <p class="fsum">From shortfall to shelf in one flow.</p>
+        <ul class="sfeat"><li><svg><use href="#ck"/></svg><span>Purchase orders raised from stock shortfalls</span></li><li><svg><use href="#ck"/></svg><span>Receive deliveries against the purchase order</span></li><li><svg><use href="#ck"/></svg><span>On-hand stock updates on arrival</span></li><li><svg><use href="#ck"/></svg><span>Supplier price history per item</span></li></ul>
+      </article>
+      <article class="feat ">
+        <div class="ftop"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 15h4"/></svg></span><div class="froles"><span style="--a:var(--warn)">Admin</span><span style="--a:var(--qonnec)">Owner</span></div></div>
+        <h3>Supplier payments</h3>
+        <p class="fsum">Bills matched, paid and recorded.</p>
+        <ul class="sfeat"><li><svg><use href="#ck"/></svg><span>Supplier invoices matched to what was received</span></li><li><svg><use href="#ck"/></svg><span>Payments, remittances and check register</span></li><li><svg><use href="#ck"/></svg><span>Withholding tax and BIR Form 2307</span></li><li><svg><use href="#ck"/></svg><span>Amounts due this week, always in view</span></li></ul>
+      </article>
+    </div>
+    <div class="pgroup"><span>Money &amp; people</span><em>The numbers and the paychecks, without re-encoding</em></div>
+    <div class="feats">
+      <article class="feat ">
+        <div class="ftop"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg></span><div class="froles"><span style="--a:var(--warn)">Admin</span><span style="--a:var(--green)">Customer</span></div></div>
+        <h3>Billing &amp; payments</h3>
+        <p class="fsum">Invoices straight from the job order, paid at the counter.</p>
+        <ul class="sfeat"><li><svg><use href="#ck"/></svg><span>VAT computed on every invoice</span></li><li><svg><use href="#ck"/></svg><span>Cash, card, GCash and bank transfer, with reference numbers</span></li><li><svg><use href="#ck"/></svg><span>Partial or full payments; optional deposits</span></li><li><svg><use href="#ck"/></svg><span>Receipts confirmed to the customer by SMS</span></li></ul>
+      </article>
+      <article class="feat ">
+        <div class="ftop"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><div class="froles"><span style="--a:var(--warn)">Admin</span><span style="--a:var(--qonnec)">Owner</span></div></div>
+        <h3>Accounting</h3>
+        <p class="fsum">Books that post themselves as the shop works.</p>
+        <ul class="sfeat"><li><svg><use href="#ck"/></svg><span>Journal entries from invoices, payments, purchases and payroll</span></li><li><svg><use href="#ck"/></svg><span>General ledger, profit &amp; loss and balance sheet</span></li><li><svg><use href="#ck"/></svg><span>Expenses recorded as they happen</span></li><li><svg><use href="#ck"/></svg><span>VAT and withholding tax ready for BIR</span></li></ul>
+      </article>
+      <article class="feat ">
+        <div class="ftop"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M17 8h4M19 6v4"/></svg></span><div class="froles"><span style="--a:var(--warn)">Admin</span><span style="--a:var(--blue)">Mechanic</span><span style="--a:var(--qonnec)">Owner</span></div></div>
+        <h3>Payroll</h3>
+        <p class="fsum">Salaries and wages, computed right every cut-off.</p>
+        <ul class="sfeat"><li><svg><use href="#ck"/></svg><span>Mechanic incentives from completed job orders</span></li><li><svg><use href="#ck"/></svg><span>Advisor commissions from sales</span></li><li><svg><use href="#ck"/></svg><span>SSS, PhilHealth, Pag-IBIG and withholding tax</span></li><li><svg><use href="#ck"/></svg><span>Payroll expense posted to accounting</span></li></ul>
+      </article>
+    </div>
+    <article class="feat wide">
+      <div class="wide-l">
+        <div class="ftop"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="10" width="8" height="11" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/></svg></span><div class="froles"><span style="--a:var(--qonnec)">Owner</span></div></div>
+        <h3>Owner dashboard &amp; reports</h3>
+        <p class="fsum">Everything above rolls up here, in real time, on the owner's phone. Sales, collections, jobs in the bays, profit and expenses, stock value and customer ratings, without calling the shop.</p>
+      </div>
+      <ul class="sfeat">
+        <li><svg><use href="#ck"/></svg><span>Real-time sales and collections</span></li>
+        <li><svg><use href="#ck"/></svg><span>Profit and expenses on track</span></li>
+        <li><svg><use href="#ck"/></svg><span>Low ratings flagged with the job and staff</span></li>
+        <li><svg><use href="#ck"/></svg><span>Stock value and supplier balances</span></li>
+      </ul>
+    </article>
+    <div class="pgroup" style="margin-top:44px"><span>How it connects</span><em>One record, passed along. Nobody re-types anything.</em></div>
+    <div class="flow" role="list">
+      <span role="listitem">Estimate</span><i aria-hidden="true">→</i><span role="listitem">Job order</span><i aria-hidden="true">→</i><span role="listitem">Invoice</span><i aria-hidden="true">→</i><span role="listitem">Payment</span><i aria-hidden="true">→</i><span role="listitem" class="g">Accounting</span><i aria-hidden="true">→</i><span role="listitem" class="o">Owner reports</span>
+    </div>
+    <div class="flow sub" role="list">
+      <span role="listitem">Stock shortfall</span><i aria-hidden="true">→</i><span role="listitem">Purchase order</span><i aria-hidden="true">→</i><span role="listitem">Receiving</span><i aria-hidden="true">→</i><span role="listitem">Supplier payment</span><i aria-hidden="true">→</i><span role="listitem" class="g">Accounting</span>
+    </div>
+    <div class="flow sub" role="list">
+      <span role="listitem">Completed job</span><i aria-hidden="true">→</i><span role="listitem">Mechanic incentive</span><i aria-hidden="true">→</i><span role="listitem">Payroll</span><i aria-hidden="true">→</i><span role="listitem" class="g">Accounting</span>
     </div>
   </div>
 </section>
@@ -1515,6 +1606,7 @@ footer .q svg{width:30px;height:30px;flex:none}
     var h=(location.hash||"").slice(1)||"home",role=null;
     if(ROLES.indexOf(h)>-1){role=h;h="roles";}
     var sc=null;if(SCN.indexOf(h)>-1){sc=h;h="journey";}
+    if(h==="features")h="processes";
     if(PAGES.indexOf(h)<0)h="home";
     PAGES.forEach(function(k){$("pg-"+k).hidden=k!==h});
     [].forEach.call(document.querySelectorAll("[data-nav]"),function(a){if(a.getAttribute("data-nav")===h)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
