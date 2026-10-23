@@ -181,6 +181,86 @@ nav.main a{padding-block:6px}
 .toast.t1 .ic{background:var(--green)}
 .toast.t2{right:-18px;top:28px}
 .toast.t2 .ic{background:var(--blue)}
+/* SMS bubble: fade in, then float softly */
+@keyframes am-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes am-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.toast.t1{animation:am-in .7s ease-out .4s both,am-float 5s ease-in-out 1.2s infinite}
+/* Live widgets over the pictures (car card, sales chart) */
+.wg-host{position:relative}
+.wg{position:absolute;filter:drop-shadow(0 6px 14px rgba(40,70,120,.10));animation:wg-float 6s ease-in-out infinite;pointer-events:none}
+.wg.d2{animation-delay:-3s}
+.wg svg{display:block;width:100%;height:100%;overflow:visible}
+.wg .card{fill:#fff}
+.wg .wl{fill:#c9d9ea;transform-box:fill-box;transform-origin:0 50%;animation:wg-line 8s ease-in-out infinite}
+.wg .wl.l2{animation-delay:.25s}.wg .wl.l3{animation-delay:.5s}
+.wg .wcar{fill:#0492ef;transform-box:fill-box;transform-origin:50% 100%;animation:wg-car 8s ease-in-out infinite}
+.wg .wchk{transform-box:fill-box;transform-origin:50% 50%;animation:wg-pop 8s ease-in-out infinite}
+.wg .wchk circle{fill:#54ae42}
+.wg .wchk path{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:40;animation:wg-tick 8s ease-in-out infinite}
+.wg .wb{fill:#55b142;transform-box:fill-box;transform-origin:50% 100%;animation:wg-bar 3.2s ease-in-out infinite alternate}
+.wg .wb.b2{animation-delay:-1.1s}.wg .wb.b3{animation-delay:-2.2s}
+.wg.d3{animation-delay:-1.5s}
+.wg .wl.wm{animation-name:wg-msg}
+.wg .wph{transform-box:fill-box;transform-origin:50% 90%;animation:wg-shake 8s ease-in-out infinite}
+.wg .wnb{transform-box:fill-box;transform-origin:50% 0;animation:wg-drop 8s ease-in-out infinite}
+.wg .wbub{transform-box:fill-box;transform-origin:0 60%;animation:wg-bub 8s ease-in-out infinite}
+.wg .wdots circle{fill:#9fb6cd;opacity:0;animation:wg-dots 8s linear infinite}
+.wg .wdots circle:nth-child(2){animation-name:wg-dots2}.wg .wdots circle:nth-child(3){animation-name:wg-dots3}
+.wg .wpr{transform-box:fill-box;transform-origin:0 50%;animation:wg-prog 6s ease-in-out infinite}
+.wg .wring{transform-box:fill-box;transform-origin:50% 50%;opacity:0;animation:wg-ring 2.4s ease-out infinite}
+.wg .wblink{animation:wg-blink 1.6s ease-in-out infinite}
+.wg .wln{stroke-dasharray:300;animation:wg-draw 6s ease-in-out infinite}
+.wg .warea{animation:wg-area 6s ease-in-out infinite}
+.wg .wdot{transform-box:fill-box;transform-origin:50% 50%;animation:wg-dot 6s ease-in-out infinite}
+.wg .wbell{transform-box:fill-box;transform-origin:50% 15%;animation:wg-ring2 4s ease-in-out infinite}
+@keyframes wg-shake{0%,4%{transform:rotate(0)}6%{transform:rotate(-6deg)}8%{transform:rotate(6deg)}10%{transform:rotate(-5deg)}12%{transform:rotate(4deg)}14%,100%{transform:rotate(0)}}
+@keyframes wg-drop{0%,8%{transform:scaleY(0);opacity:0}14%,90%{transform:scaleY(1);opacity:1}97%,100%{transform:scaleY(0);opacity:0}}
+@keyframes wg-bub{0%,14%{transform:scale(0);opacity:0}21%{transform:scale(1.05);opacity:1}24%,90%{transform:scale(1);opacity:1}97%,100%{transform:scale(.6);opacity:0}}
+@keyframes wg-dots{0%,22%{opacity:0;transform:none}24%{opacity:1}28%{transform:translateY(-4px)}32%{transform:none}36%{transform:translateY(-4px)}40%{transform:none;opacity:1}42%,100%{opacity:0}}
+@keyframes wg-dots2{0%,23%{opacity:0;transform:none}25%{opacity:1}29.5%{transform:translateY(-4px)}33.5%{transform:none}37.5%{transform:translateY(-4px)}41%{transform:none;opacity:1}42%,100%{opacity:0}}
+@keyframes wg-dots3{0%,24%{opacity:0;transform:none}26%{opacity:1}31%{transform:translateY(-4px)}35%{transform:none}39%{transform:translateY(-4px)}41.5%{transform:none;opacity:1}42%,100%{opacity:0}}
+@keyframes wg-msg{0%,42%{transform:scaleX(0);opacity:1}54%,90%{transform:scaleX(1);opacity:1}97%,100%{transform:scaleX(1);opacity:0}}
+@keyframes wg-prog{0%{transform:scaleX(.05)}70%,85%{transform:scaleX(1)}100%{transform:scaleX(.05)}}
+@keyframes wg-ring{0%{transform:scale(.9);opacity:.7}100%{transform:scale(1.5);opacity:0}}
+@keyframes wg-blink{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes wg-draw{0%{stroke-dashoffset:300;opacity:1}55%,88%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+@keyframes wg-area{0%,35%{opacity:0}60%,85%{opacity:.14}100%{opacity:0}}
+@keyframes wg-dot{0%,50%{transform:scale(0)}58%{transform:scale(1.3)}62%,88%{transform:scale(1)}100%{transform:scale(0)}}
+@keyframes wg-ring2{0%,70%,100%{transform:rotate(0)}74%{transform:rotate(14deg)}78%{transform:rotate(-12deg)}82%{transform:rotate(8deg)}86%{transform:rotate(-4deg)}90%{transform:rotate(0)}}
+.roles-art .wg{display:none}
+.roles-art[data-actor=customer] .a-customer,.roles-art[data-actor=advisor] .a-advisor,.roles-art[data-actor=mechanic] .a-mechanic,.roles-art[data-actor=admin] .a-admin,.roles-art[data-actor=owner] .a-owner{display:block;animation:wg-show .45s ease-out both,wg-float 6s ease-in-out .45s infinite}
+@keyframes wg-show{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
+.wg .wtk{transform-box:fill-box;transform-origin:50% 50%;animation:wg-tk 8s ease-in-out infinite}
+.wg .wtk.c2{animation-delay:-7.2s}.wg .wtk.c3{animation-delay:-6.4s}
+@keyframes wg-tk{0%,12%{transform:scale(0)}17%{transform:scale(1.2)}20%,90%{transform:scale(1)}96%,100%{transform:scale(0)}}
+.wg .wln.w2{animation-delay:-.6s}
+.wg .warr{animation:wg-arr 6s ease-in-out infinite}
+.wg .wpill{animation:wg-pill 6s ease-in-out infinite}
+@keyframes wg-arr{0%,50%{opacity:0;transform:translateY(6px)}60%,88%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes wg-pill{0%,50%{opacity:0}58%,88%{opacity:1}100%{opacity:0}}
+.wg.wphone{filter:drop-shadow(0 10px 18px rgba(40,70,120,.18))}
+.wg .wph2{transform-box:fill-box;transform-origin:50% 85%;animation:wg-buzz 9s ease-in-out infinite}
+.wg .wn{transform-box:fill-box;transform-origin:50% 0}
+.wg .wn.n1{animation:wg-n1 9s ease-out infinite}.wg .wn.n2{animation:wg-n2 9s ease-out infinite}.wg .wn.n3{animation:wg-n3 9s ease-out infinite}
+.wg .wbadge{transform-box:fill-box;transform-origin:50% 50%;animation:wg-badge 9s ease-out infinite}
+@keyframes wg-buzz{0%,6%,13%,31%,38%,56%,63%,100%{transform:rotate(0)}7.5%,32.5%,57.5%{transform:rotate(-5deg)}9%,34%,59%{transform:rotate(5deg)}10.5%,35.5%,60.5%{transform:rotate(-3deg)}12%,37%,62%{transform:rotate(2deg)}}
+@keyframes wg-n1{0%,6%{opacity:0;transform:translateY(-10px) scaleY(.6)}10%,90%{opacity:1;transform:none}96%,100%{opacity:0;transform:none}}
+@keyframes wg-n2{0%,31%{opacity:0;transform:translateY(-10px) scaleY(.6)}35%,90%{opacity:1;transform:none}96%,100%{opacity:0;transform:none}}
+@keyframes wg-n3{0%,56%{opacity:0;transform:translateY(-10px) scaleY(.6)}60%,90%{opacity:1;transform:none}96%,100%{opacity:0;transform:none}}
+@keyframes wg-badge{0%,5%{transform:scale(0)}8%{transform:scale(1.35)}11%,30%{transform:scale(1)}33%{transform:scale(1.35)}36%,55%{transform:scale(1)}58%{transform:scale(1.35)}61%,90%{transform:scale(1)}96%,100%{transform:scale(0)}}
+.wg .wgrow{transform-box:fill-box;transform-origin:50% 100%;animation:wg-grow 6s ease-out infinite backwards}
+.wg .wgrow.g2{animation-delay:.25s}.wg .wgrow.g3{animation-delay:.5s}.wg .wgrow.g4{animation-delay:.75s}
+@keyframes wg-grow{0%{transform:scaleY(0)}35%,88%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);opacity:0}}
+.wg .wpin{animation:wg-pin 3s ease-in infinite}
+.wg .wpout{animation:wg-pout 3s ease-out 1.5s infinite backwards}
+@keyframes wg-pin{0%{transform:translateY(0);opacity:0}15%{opacity:1}55%{transform:translateY(28px);opacity:1}65%,100%{transform:translateY(32px);opacity:0}}
+@keyframes wg-pout{0%,10%{transform:translateX(-22px);opacity:0}25%{opacity:1}70%{transform:translateX(6px);opacity:1}85%,100%{transform:translateX(12px);opacity:0}}
+@keyframes wg-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes wg-line{0%{transform:scaleX(0);opacity:1}14%{transform:scaleX(1);opacity:1}88%{transform:scaleX(1);opacity:1}96%{transform:scaleX(1);opacity:0}100%{transform:scaleX(0);opacity:0}}
+@keyframes wg-car{0%,6%{transform:translateY(0)}9%{transform:translateY(-3px)}12%{transform:translateY(0)}15%{transform:translateY(-1.5px)}18%,100%{transform:translateY(0)}}
+@keyframes wg-pop{0%,22%{transform:scale(0)}30%{transform:scale(1.15)}35%,88%{transform:scale(1)}96%,100%{transform:scale(0)}}
+@keyframes wg-tick{0%,28%{stroke-dashoffset:40}40%,100%{stroke-dashoffset:0}}
+@keyframes wg-bar{from{transform:scaleY(.45)}to{transform:scaleY(1)}}
 @media (max-width:960px){.hero .wrap{grid-template-columns:1fr}.toast.t1{right:12px;top:-92px}.hero .art{margin-top:72px}.toast.t2{right:12px;top:12px}}
 @media (max-width:520px){.toast{display:none}}
 
@@ -542,7 +622,7 @@ footer .q svg{width:30px;height:30px;flex:none}
       </div>
     </div>
     <div class="art">
-      <div class="frame"><img class="hero-art" src="img/home-hero.webp?v=9" width="1040" height="632" fetchpriority="high" alt="A mechanic works under the hood while the service advisor reviews the job on a tablet with the customer, with job status and sales cards above"></div>
+      <div class="frame wg-host"><img class="hero-art" src="img/home-hero.webp?v=10" width="1040" height="632" fetchpriority="high" alt="A mechanic works under the hood while the service advisor reviews the job on a tablet with the customer, with job status and sales cards above"><div class="wg" aria-hidden="true" style="left:14.42%;top:12.82%;width:28.65%;height:13.61%"><svg viewBox="0 0 298 86"><rect class="card" width="298" height="86" rx="10"/><g transform="translate(25 19) scale(1.0)"><g class="wcar"><path d="M10 20 15.5 5Q17 1 21.5 1h19Q45 1 46.5 5L52 20Z"/><rect y="17" width="62" height="23" rx="7"/><rect x="5" y="36" width="12" height="14" rx="3.5"/><rect x="45" y="36" width="12" height="14" rx="3.5"/><path d="M16.5 17 20 7.5Q20.6 6 22.4 6h17.2Q41.4 6 42 7.5L45.5 17Z" fill="#fff"/><rect x="6" y="24" width="10" height="6.5" rx="3.2" fill="#fff"/><rect x="46" y="24" width="10" height="6.5" rx="3.2" fill="#fff"/></g></g><rect class="wl l1" x="106" y="22.5" width="100" height="8" rx="4.0"/><rect class="wl l2" x="106" y="40.5" width="88" height="8" rx="4.0"/><rect class="wl l3" x="106" y="58.0" width="52" height="8" rx="4.0"/><g class="wchk"><circle cx="250.5" cy="45" r="23.5"/><path d="M240.5 45.5l6.5 6.5l13.0 -13.0" stroke-width="5.0"/></g></svg></div><div class="wg d2" aria-hidden="true" style="left:54.62%;top:12.34%;width:21.73%;height:13.13%"><svg viewBox="0 0 226 83"><rect class="card" width="226" height="83" rx="10"/><rect class="wb b1" x="20.5" y="45.5" width="15.5" height="20.0" rx="2.5"/><rect class="wb b2" x="42" y="30.5" width="15.5" height="35.0" rx="2.5"/><rect class="wb b3" x="63.5" y="17" width="15.5" height="48.5" rx="2.5"/><rect class="wl l1" x="101" y="21" width="91" height="8" rx="4"/><rect class="wl l2" x="101" y="39.5" width="91" height="8" rx="4"/><rect class="wl l3" x="101" y="57.5" width="49" height="8" rx="4"/></svg></div></div>
       <div class="toast t1" aria-hidden="true"><div class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 5h16v11H8l-4 4z"/></svg></div><div><b>SMS · KALYEAUTO</b>Hi Mark, your Vios is done. Amount due ₱10,645.00. Please see Ana at the counter.</div></div>
     </div>
   </div>
@@ -669,9 +749,27 @@ footer .q svg{width:30px;height:30px;flex:none}
   });
   window.addEventListener("scroll",pick,{passive:true});window.addEventListener("resize",pick);pick();
 
+
+
+  // Widget counters: [data-count] numbers count up on a 6s loop in step with the charts
+  (function(){var els=[].slice.call(document.querySelectorAll("[data-count]"));if(!els.length)return;
+    var still=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function fmt(el,n){return (el.getAttribute("data-pre")||"")+Math.round(n).toLocaleString("en-US");}
+    if(still)return;var t0=performance.now();
+    (function step(now){var p=((now-t0)%6000)/6000,k=Math.min(p/0.55,1),e=1-Math.pow(1-k,3);
+      els.forEach(function(el){var f=+el.getAttribute("data-from"),to=+el.getAttribute("data-to");el.textContent=fmt(el,f+(to-f)*e);});
+      requestAnimationFrame(step);})(t0);})();
+  // Owner widget: profit amount counts up with the chart (6s cycle)
+  (function(){var ra=document.querySelector(".roles-art"),el=ra&&ra.querySelector(".a-owner .wamt");if(!el)return;
+    var from=965800,to=1250100,run=0,still=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function fmt(n){return "\u20b1"+Math.round(n).toLocaleString("en-US");}
+    window.amOwnerCount=function(){var id=++run;if(still||ra.getAttribute("data-actor")!=="owner"){el.textContent=fmt(to);return;}
+      var t0=performance.now();(function step(now){if(id!==run||ra.getAttribute("data-actor")!=="owner")return;
+        var p=((now-t0)%6000)/6000,k=Math.min(p/0.55,1),e=1-Math.pow(1-k,3);el.textContent=fmt(from+(to-from)*e);requestAnimationFrame(step);})(t0);};
+    amOwnerCount();})();
   // Role tabs
   var tabs=[].slice.call(document.querySelectorAll(".tab"));
-  function sel(t){tabs.forEach(function(x){var on=x===t;x.setAttribute("aria-selected",on);x.tabIndex=on?0:-1;$(x.getAttribute("aria-controls")).hidden=!on;});}
+  function sel(t){tabs.forEach(function(x){var on=x===t;x.setAttribute("aria-selected",on);x.tabIndex=on?0:-1;$(x.getAttribute("aria-controls")).hidden=!on;});var ra=document.querySelector(".roles-art");if(ra&&t){ra.setAttribute("data-actor",t.getAttribute("data-actor"));if(window.amOwnerCount)amOwnerCount();}}
   tabs.forEach(function(t,i){
     t.addEventListener("click",function(){sel(t)});
     t.addEventListener("keydown",function(e){var n=e.key==="ArrowRight"?1:e.key==="ArrowLeft"?-1:0;if(n){var nt=tabs[(i+n+tabs.length)%tabs.length];sel(nt);nt.focus();}});
@@ -704,8 +802,8 @@ footer .q svg{width:30px;height:30px;flex:none}
   }
   window.addEventListener("hashchange",route);route();
   // Demo form → email to inquiry@autoshop.ph (via Google Apps Script web app)
-  // Public Apps Script web app URL for demo requests.
-  var GOOGLE_SCRIPT_URL="https://script.google.com/macros/s/AKfycbyk9JLARjuSeNk3VQ-ydPXCjcRkOK_Lu4QO5GB-8nc7mGGNS-r1Ndc_LM3sL6G7OjcRaQ/exec";
+  // Paste your Apps Script web app URL here (ends in /exec). Leave empty to keep the form in preview mode.
+  var GOOGLE_SCRIPT_URL="";
   if($("demo-form")){
   var typeSel=$("f-type"),otherWrap=$("f-other-wrap");
   typeSel.addEventListener("change",function(){otherWrap.hidden=typeSel.value!=="Other";if(!otherWrap.hidden)$("f-other").focus();});
