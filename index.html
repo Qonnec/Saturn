@@ -704,8 +704,8 @@ footer .q svg{width:30px;height:30px;flex:none}
   }
   window.addEventListener("hashchange",route);route();
   // Demo form → email to inquiry@autoshop.ph (via Google Apps Script web app)
-  // Paste your Apps Script web app URL here (ends in /exec). Leave empty to keep the form in preview mode.
-  var GOOGLE_SCRIPT_URL="";
+  // Public Apps Script web app URL for demo requests.
+  var GOOGLE_SCRIPT_URL="https://script.google.com/macros/s/AKfycbyk9JLARjuSeNk3VQ-ydPXCjcRkOK_Lu4QO5GB-8nc7mGGNS-r1Ndc_LM3sL6G7OjcRaQ/exec";
   if($("demo-form")){
   var typeSel=$("f-type"),otherWrap=$("f-other-wrap");
   typeSel.addEventListener("change",function(){otherWrap.hidden=typeSel.value!=="Other";if(!otherWrap.hidden)$("f-other").focus();});
